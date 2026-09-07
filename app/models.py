@@ -34,9 +34,9 @@ class Appointment(SQLModel, table=True):
     )
     reason: str
     status: StatusEnum = Field(
-    default=StatusEnum.SCH,
-    sa_column=Column(SAEnum(StatusEnum, values_callable=enum_values, name="status_enum"),
-        nullable=False)
+                               default=StatusEnum.SCH,
+                               sa_column=Column(SAEnum(StatusEnum, values_callable=enum_values, name="status_enum"),
+                               nullable=False)
     )
     created_at: datetime = Field(
         default_factory=get_utc_now,
